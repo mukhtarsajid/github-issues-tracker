@@ -1,0 +1,83 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GitHub Issues Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <!-- <style> -->
+   <link rel="stylesheet" href="/style.css">
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a class="logo" href="#">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M4.22 4.22l2.12 2.12m11.32 11.32 2.12 2.12M2 12h3m14 0h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
+    </svg>
+    IssueTracker
+  </a>
+  <div class="search-wrap">
+    <input type="text" id="searchInput" placeholder="Search issues…" />
+    <button class="search-btn" onclick="doSearch()">Search</button>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main>
+  <!-- TABS -->
+  <div class="tabs-bar">
+    <button class="tab-btn active" data-tab="all"    onclick="switchTab('all')">All</button>
+    <button class="tab-btn"        data-tab="open"   onclick="switchTab('open')">Open</button>
+    <button class="tab-btn"        data-tab="closed" onclick="switchTab('closed')">Closed</button>
+  </div>
+
+  <!-- ISSUE HEADER -->
+  <div class="issues-header">
+    <div class="issues-count">
+      <div class="icon-wrap">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+      </div>
+      <span id="countLabel">Loading…</span>
+    </div>
+    <div class="status-badges">
+      <div class="badge-dot"><div class="dot open"></div><span id="openCount">—</span> Open</div>
+      <div class="badge-dot"><div class="dot closed"></div><span id="closedCount">—</span> Closed</div>
+    </div>
+  </div>
+
+  <!-- CARDS -->
+  <div class="cards-container">
+    <div id="cardsGrid" class="cards-grid">
+      <div class="loading" style="grid-column:1/-1">
+        <div class="spinner"></div>
+        <p>Fetching issues…</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle"></div>
+      <button class="modal-close" onclick="closeModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+</script>
+<script src="/sajid.js"></script>
+</body>
+</html>
